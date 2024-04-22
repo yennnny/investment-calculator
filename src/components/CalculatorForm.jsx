@@ -1,7 +1,14 @@
 import { useState } from 'react';
 
+const initialInputState = {
+  'current-savings': 10000,
+  'yearly-contribution': 1200,
+  'expected-return': 7,
+  duration: 10,
+};
+
 const CalculatorForm = () => {
-  const [inputState, setInputState] = useState({});
+  const [inputState, setInputState] = useState(initialInputState);
 
   const handleInlutChanges = (e) => {
     setInputState({
@@ -10,7 +17,9 @@ const CalculatorForm = () => {
     });
   };
 
-  const handleReset = () => {};
+  const handleReset = () => {
+    setInputState(initialInputState);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault(); //submit 버튼을 눌렀을때 페이지가 리로드 되는 것을 멈추기
@@ -22,17 +31,19 @@ const CalculatorForm = () => {
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
+            onChange={handleInlutChanges}
+            value={inputState['current-savings']}
             type="number"
             id="current-savings"
-            onChange={handleInlutChanges}
           />
         </p>
         <p>
           <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
           <input
+            onChange={handleInlutChanges}
+            value={inputState['yearly-contribution']}
             type="number"
             id="yearly-contribution"
-            onChange={handleInlutChanges}
           />
         </p>
       </div>
@@ -42,14 +53,20 @@ const CalculatorForm = () => {
             Expected Interest (%, per year)
           </label>
           <input
+            onChange={handleInlutChanges}
+            value={inputState['expected-return']}
             type="number"
             id="expected-return"
-            onChange={handleInlutChanges}
           />
         </p>
         <p>
           <label htmlFor="duration">Investment Duration (years)</label>
-          <input type="number" id="duration" onChange={handleInlutChanges} />
+          <input
+            onChange={handleInlutChanges}
+            value={inputState['duration']}
+            type="number"
+            id="duration"
+          />
         </p>
       </div>
       <p className="actions">
