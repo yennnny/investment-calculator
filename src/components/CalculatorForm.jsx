@@ -14,7 +14,7 @@ const CalculatorForm = (props) => {
   const handleInlutChanges = (e) => {
     setInputState({
       ...inputState,
-      [e.target.id]: e.target.value,
+      [e.target.id]: +e.target.value,
     });
   };
 
