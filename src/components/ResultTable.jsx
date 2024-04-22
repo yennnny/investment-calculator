@@ -22,7 +22,7 @@ const ResultTable = (props) => {
       <tbody>
         {props.data.map((yearData) => (
           <tr key={yearData.year}>
-            <td>{formatter.format(yearData.year)}</td>
+            <td>{yearData.year}</td>
             <td>{formatter.format(yearData.savingsEndOfYear)}</td>
             <td>{formatter.format(yearData.yearlyInterest)}</td>
             <td>
