@@ -7,7 +7,7 @@ const initialInputState = {
   duration: 10,
 };
 
-const CalculatorForm = () => {
+const CalculatorForm = (props) => {
   const [inputState, setInputState] = useState(initialInputState);
 
   const handleInlutChanges = (e) => {
@@ -22,7 +22,8 @@ const CalculatorForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); //submit 버튼을 눌렀을때 페이지가 리로드 되는 것을 멈추기
+    e.preventDefault(); // submit 버튼을 눌렀을때 페이지가 리로드 되는 것을 멈추기
+    props.onCalculate(inputState);
   };
 
   return (
